@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    jdbc-url: jdbc:postgresql://localhost:5432/hospital-management
+    username: postgres
+    password: root
