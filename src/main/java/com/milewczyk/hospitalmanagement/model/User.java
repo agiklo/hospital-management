@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 @MappedSuperclass
-public class User{
+public class User {
 
     private String firstname;
     private String lastname;
