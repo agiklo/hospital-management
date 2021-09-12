@@ -21,6 +21,7 @@ import java.util.List;
 public class Patient extends User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
@@ -42,6 +43,7 @@ public class Patient extends User {
     private List<Appointment> appointments;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_patient")
     private List<Prescription> prescriptions;
 
     public Patient(String firstname,

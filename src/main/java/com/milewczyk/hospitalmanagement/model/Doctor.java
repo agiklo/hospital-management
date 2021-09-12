@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -17,9 +18,11 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "DOCTORS")
+@Component
 public class Doctor extends User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
@@ -30,6 +33,8 @@ public class Doctor extends User {
 
     @OneToMany(mappedBy = "doctor")
     private List<Appointment> appointments;
+
+    private String password;
 
     public Doctor(String firstname,
                   String lastname,

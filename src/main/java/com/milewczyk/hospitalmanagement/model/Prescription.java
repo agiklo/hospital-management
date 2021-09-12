@@ -16,6 +16,7 @@ import java.util.List;
 public class Prescription {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
@@ -25,6 +26,7 @@ public class Prescription {
     private LocalDateTime validUntil;
 
     @OneToMany
+    @JoinColumn(name = "fk_perscription")
     private List<Medicament> medicaments;
 
     public Prescription(Appointment appointment, boolean used, LocalDateTime validUntil, List<Medicament> medicaments) {
