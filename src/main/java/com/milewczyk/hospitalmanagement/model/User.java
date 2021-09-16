@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
@@ -23,5 +25,6 @@ public class User {
     private String email;
     private String nationality;
     private LocalDateTime dateOfBirth;
+    @Enumerated(EnumType.STRING)
     private SEX sex;
 }
