@@ -22,17 +22,17 @@ public class Prescription {
     @OneToOne
     private Appointment appointment;
 
-    private boolean used;
+    private boolean isActive;
     private LocalDateTime validUntil;
 
     @OneToMany
     @JoinColumn(name = "fk_perscription")
     private List<Medicament> medicaments;
 
-    public Prescription(Appointment appointment, boolean used, LocalDateTime validUntil, List<Medicament> medicaments) {
+    public Prescription(Appointment appointment, LocalDateTime validUntil, List<Medicament> medicaments) {
         this.appointment = appointment;
-        this.used = used;
         this.validUntil = validUntil;
         this.medicaments = medicaments;
+        this.isActive = true;
     }
 }
